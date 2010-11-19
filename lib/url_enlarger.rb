@@ -20,14 +20,14 @@ class UrlEnlarger
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
       http.use_ssl = true
     end
+
+    # We just request the HEAD, which can save bandwidth it the url is not a short one
     request = Net::HTTP::Head.new(uri.request_uri)
-    begin
-      response = http.request(request)
-    rescue Exception => e
-      puts "#{original_url}: #{e.message}"
-      return nil
-    end
     
+    # We let the caller deal with failure
+    response = http.request(request)
+
+    # got ourself in the middle of a redirection
     if response.kind_of? Net::HTTPRedirection
       redirect_url = response['location']
       
@@ -37,7 +37,8 @@ class UrlEnlarger
         redirect_url = url[0, rindex+1] + redirect_url
       end
     else
-      redirect_url = url
+      # No redirection -> the url is already a long one
+      url
     end
   end
 end
