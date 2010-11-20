@@ -1,4 +1,3 @@
-require 'rubygems'
 require 'net/https'
 
 # This class is a little helper to get the real url behind a short one. Basically, it just
@@ -10,11 +9,11 @@ class UrlEnlarger
 
   # This class method expands the url passed as argument.
   def self.enlarge(url)
-    if url.nil?
-      return url
-    end
+    # basic test. Hardly enough
+    return nil unless !url.nil? && !(url =~ /\Ahttps?:\/\//i).nil?
     
     uri = URI.parse(url)
+
     http = Net::HTTP.new(uri.host, uri.port)
     if uri.scheme =~ /https/i
       http.verify_mode = OpenSSL::SSL::VERIFY_NONE
@@ -38,7 +37,15 @@ class UrlEnlarger
       end
     else
       # No redirection -> the url is already a long one
-      url
+      redirect_url = url
     end
+
+    # test for this edge case only for now. I don't want to go 1 step further if not necessary for the other kind of urls
+    if redirect_url =~ /\Ahttp:\/\/feedproxy.google.com\//i
+      self.enlarge redirect_url
+    else
+      redirect_url
+    end
+
   end
 end
