@@ -8,10 +8,8 @@ require 'net/https'
 class UrlEnlarger
 
   # This class method expands the url passed as argument.
-  def self.enlarge(url)
-    # basic test. Hardly enough
-    return nil unless !url.nil? && !(url =~ /\Ahttps?:\/\//i).nil?
-    
+  # Method can be HEAD or GET. It's HEAD by default  
+  def self.enlarge(url, method=:get)
     uri = URI.parse(url)
 
     http = Net::HTTP.new(uri.host, uri.port)
@@ -21,7 +19,15 @@ class UrlEnlarger
     end
 
     # We just request the HEAD, which can save bandwidth it the url is not a short one
-    request = Net::HTTP::Head.new(uri.request_uri)
+    begin
+      request = if method == :get 
+        Net::HTTP::Get.new(uri.request_uri)
+      elsif method == :head
+        Net::HTTP::Head.new(uri.request_uri)
+      end
+    rescue Exception => e
+      raise URI::InvalidURIError
+    end
     
     # We let the caller deal with failure
     response = http.request(request)
@@ -41,7 +47,7 @@ class UrlEnlarger
     end
 
     # test for this edge case only for now. I don't want to go 1 step further if not necessary for the other kind of urls
-    if redirect_url =~ /\Ahttp:\/\/feedproxy.google.com\//i
+    if redirect_url =~ /\Ahttp:\/\/feedproxy.google.com\/|feedburner\.com\/|http:\/\/(feeds|rss|atom)\./i
       self.enlarge redirect_url
     else
       redirect_url
