@@ -1,0 +1,21 @@
+HTTP/1.1 301 Moved
+Server: nginx/0.7.67
+Date: Mon, 29 Nov 2010 10:24:31 GMT
+Content-Type: text/html; charset=utf-8
+Connection: keep-alive
+Set-Cookie: _bit=4cf37f5f-0029b-06bf5-eeac8fa8;domain=.j.mp;expires=Sat May 28 06:24:31 2011;path=/; HttpOnly
+Location: http://sr3d.github.com/GithubFinder/?utm_source=bml&user_id=sr3d&repo=GithubFinder
+MIME-Version: 1.0
+Content-Length: 344
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Moved</TITLE>
+</HEAD>
+<BODY>
+<H2>Moved</H2>
+<A HREF="http://sr3d.github.com/GithubFinder/?utm_source=bml&user_id=sr3d&repo=GithubFinder">The requested URL has moved here.</A>
+<P ALIGN=RIGHT><SMALL><I>AOLserver/4.5.1 on http://127.0.0.1:7400</I></SMALL></P>
+</BODY>
+</HTML>

@@ -1,0 +1,12 @@
+HTTP/1.1 200 OK
+Server: nginx
+Date: Mon, 29 Nov 2010 11:06:16 GMT
+Content-Type: text/html; charset=UTF-8
+Connection: close
+Last-Modified: Mon, 29 Nov 2010 11:03:29 +0000
+Cache-Control: max-age=133, must-revalidate
+Vary: Cookie
+X-hacker: If you're reading this, you should visit automattic.com/jobs and apply to join the fun, mention this header.
+X-Pingback: http://techcrunch.com/xmlrpc.php
+Link: <http://wp.me/pNaxW-125G>; rel=shortlink
+X-nananana: Batcache

@@ -1,0 +1,21 @@
+HTTP/1.1 301 Moved
+Server: nginx/0.7.67
+Date: Mon, 29 Nov 2010 10:56:17 GMT
+Content-Type: text/html; charset=utf-8
+Connection: keep-alive
+Set-Cookie: _bit=4cf386d1-0028e-07618-dbac8fa8;domain=.tcrn.ch;expires=Sat May 28 06:56:17 2011;path=/; HttpOnly
+Location: http://techcrunch.com/2010/11/19/hitwise-facebook-accounts-for-1-in-4-page-views-in-the-u-s/
+MIME-Version: 1.0
+Content-Length: 354
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<HTML>
+<HEAD>
+<TITLE>Moved</TITLE>
+</HEAD>
+<BODY>
+<H2>Moved</H2>
+<A HREF="http://techcrunch.com/2010/11/19/hitwise-facebook-accounts-for-1-in-4-page-views-in-the-u-s/">The requested URL has moved here.</A>
+<P ALIGN=RIGHT><SMALL><I>AOLserver/4.5.1 on http://127.0.0.1:7400</I></SMALL></P>
+</BODY>
+</HTML>
